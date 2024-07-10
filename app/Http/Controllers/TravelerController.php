@@ -12,7 +12,9 @@ class TravelerController extends Controller
      */
     public function index()
     {
-        //
+        $travelers = Traveler::orderBy('id', 'name', 'adress', 'telephone')->get();
+        return view('traveler.listar', compact('travelers'));
+        //return  $cursos;
     }
 
     /**
@@ -20,7 +22,7 @@ class TravelerController extends Controller
      */
     public function create()
     {
-        //
+        return view('traveler.create');
     }
 
     /**
@@ -28,7 +30,12 @@ class TravelerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $traveler= new Traveler();
+        $traveler->name=$request->name;
+        $traveler->adress=$request->adress;
+        $traveler->telephone=$request->telephone;
+        $traveler->save();
+        return $traveler;
     }
 
     /**
@@ -36,7 +43,7 @@ class TravelerController extends Controller
      */
     public function show(Traveler $traveler)
     {
-        //
+        return view('traveler.show', compact('traveler'));
     }
 
     /**
@@ -44,7 +51,7 @@ class TravelerController extends Controller
      */
     public function edit(Traveler $traveler)
     {
-        //
+        return view('traveler.edit',compact('traveler'));
     }
 
     /**
@@ -52,7 +59,11 @@ class TravelerController extends Controller
      */
     public function update(Request $request, Traveler $traveler)
     {
-        //
+        $traveler->name = $request->name;
+        $traveler->adress = $request->adress;
+        $traveler->telephone = $request->telephone;
+        $traveler->save();
+        return redirect()->route('traveler.index');
     }
 
     /**
@@ -60,6 +71,7 @@ class TravelerController extends Controller
      */
     public function destroy(Traveler $traveler)
     {
-        //
+        $traveler->delete();
+        return redirect()->route('traveler.index');
     }
 }
