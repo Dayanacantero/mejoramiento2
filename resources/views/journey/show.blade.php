@@ -7,6 +7,6 @@
 </head>
 <body>
     <h1>hola desde show:</h1>
-    {{$traveler}}
+    {{$journey}}
 </body>
 </html>

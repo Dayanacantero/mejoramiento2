@@ -10,20 +10,20 @@
 
     <table>
 
-        @foreach ($travelers as $traveler)
+        @foreach ($journeys as $journey)
         {{-- creo una fila --}}
         <tr>
-            <td>{{$traveler->id}}</td>
-            <td>{{$traveler->name}}</td>
-            <td>{{$traveler->adress}}</td>
-            <td>{{$traveler->telephone}}</td>
-            <td><a href="{{route('traveler.show',$traveler->id)}}">Mostrar</a></td>
-            <td><a href="{{route('traveler.edit',$traveler->id)}}">Editar</a></td>
+            <td>{{$journey->id}}</td>
+            <td>{{$journey->num_plazas}}</td>
+            <td>{{$journey->fecha}}</td>
+            <td>{{$journey->dato_adicional}}</td>
+            <td><a href="{{route('journey.show',$journey->id)}}">Mostrar</a></td>
+            <td><a href="{{route('journey.edit',$journey->id)}}">Editar</a></td>
             <td>
-                <form action="{{route('traveler.destroy',$traveler->id)}}" method="POST">
+                <form action="{{route('journey.destroy',$journey->id)}}" method="POST">
                     @csrf
-                    @method('delete')
-                    <button type="submit">Eliminar</button>
+                    @method('DELETE')
+                    <button type="submit"onclick>Eliminar</button>
                 </form>  
 
 

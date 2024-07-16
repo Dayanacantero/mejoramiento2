@@ -12,7 +12,7 @@ class TravelerController extends Controller
      */
     public function index()
     {
-        $travelers = Traveler::orderBy('id', 'name', 'adress', 'telephone')->get();
+        $travelers = Traveler::orderBy('id', 'desc')->get();
         return view('traveler.listar', compact('travelers'));
         //return  $cursos;
     }

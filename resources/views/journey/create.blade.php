@@ -8,26 +8,26 @@
 <body>
     <h1>Crear curso</h1>
 
-<form action="{{route('traveler.store')}}" method="POST" enctype="multipart/form-data">
+<form action="{{route('journey.store')}}" method="POST" enctype="multipart/form-data">
 
 @csrf
 
 <label>
-    Nombre:
+    Num_plazas:
     <br>
-    <input type="text" name="name">
+    <input type="text" name="num_plazas">
 </label>
 <br>
 <label>
-    direccion:
+    Fecha:
     <br>
-    <input type="text" name="adress">
+    <input type="text" name="fecha">
 </label>
 <br>
 <label>
-    Telefono:
+    Dato adicional:
     <br>
-    <input type="text" name="telephone">
+    <input type="text" name="dato_adicional">
 </label>
 <br>
 <br>

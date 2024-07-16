@@ -12,7 +12,9 @@ class JourneyController extends Controller
      */
     public function index()
     {
-        //
+        $journeys = Journey::orderBy('id', 'desc')->get();
+        return view('journey.listar', compact('journeys'));
+        //return  $cursos;
     }
 
     /**
@@ -20,7 +22,7 @@ class JourneyController extends Controller
      */
     public function create()
     {
-        //
+        return view('journey.create');
     }
 
     /**
@@ -28,7 +30,12 @@ class JourneyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $journey= new Journey();
+        $journey->num_plazas=$request->num_plazas;
+        $journey->fecha=$request->fecha;
+        $journey->dato_adicional=$request->dato_adicional;
+        $journey->save();
+        return $journey;
     }
 
     /**
@@ -36,7 +43,7 @@ class JourneyController extends Controller
      */
     public function show(Journey $journey)
     {
-        //
+        return view('journey.show', compact('journey'));
     }
 
     /**
@@ -44,7 +51,7 @@ class JourneyController extends Controller
      */
     public function edit(Journey $journey)
     {
-        //
+        return view('journey.edit',compact('journey'));
     }
 
     /**
@@ -52,14 +59,20 @@ class JourneyController extends Controller
      */
     public function update(Request $request, Journey $journey)
     {
-        //
+        $journey->num_plazas = $request->num_plazas;
+        $journey->fecha = $request->fecha;
+        $journey->dato_adicional = $request->dato_adicional;
+        $journey->save();
+        return redirect()->route('journey.index');
     }
+    
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Journey $journey)
     {
-        //
+        $journey->delete();
+        return redirect()->route('journey.index');
     }
 }

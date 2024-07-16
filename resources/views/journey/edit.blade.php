@@ -6,28 +6,28 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="{{route('traveler.update', $traveler)}}"  method="POST">
+    <form action="{{route('journey.update', $journey)}}"  method="POST">
 
         @csrf
         @method('put')
         <label>
-        Nombre:
+        Num_plazas:
         <br>
-        <input name="name" type="text" value="{{old('Name',$traveler->name) }}">
+        <input name="num_plazas" type="text" value="{{old('num_plazas',$journey->num_plazas) }}">
         <br>
         </label>
         <br>
         <label>
-        direccion:
+        Fecha:
         <br>
-        <input name="adress" type="text" value="{{old('adress',$traveler->adress)}}">
+        <input name="fecha" type="text" value="{{old('fecha',$journey->fecha)}}">
         <br>
         </label>
         <br>
          <label>
-        Telefono:
+        Dato adicional:
         <br>
-        <input name="telephone" type="text" value="{{old('telephone',$traveler->telephone)}}">
+        <input name="dato_adicional" type="text" value="{{old('dato_adicional',$journey->dato_adicional)}}">
         <br>
         </label>
         <br>
