@@ -10,6 +10,6 @@ class Destination extends Model
     use HasFactory;
 
     public function journeys(){
-        return $this->hasMany('App\Models\Journey');
+        return $this->belongsTo('App\Models\Journey');
     }
 }

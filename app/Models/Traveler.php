@@ -12,6 +12,6 @@ class Traveler extends Model
     protected $fillable = ['name', 'adress', 'telephone'];
 
     public function journeys(){
-        return $this->belongsTo('App\Models\Journey');
+        return $this->hasMany('App\Models\Journey');
     }
 }
